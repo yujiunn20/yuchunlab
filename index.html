@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>YuChunLab</title>
+  <script>
+    (function () {
+      var KEY   = 'ycl_lang';
+      var LANGS = ['zh-Hant', 'en', 'ja'];
+      var stored = localStorage.getItem(KEY);
+      var lang = 'zh-Hant';
+
+      if (stored && LANGS.indexOf(stored) !== -1) {
+        lang = stored;
+      } else {
+        var bl = (navigator.language || '').toLowerCase();
+        if (bl.startsWith('ja')) lang = 'ja';
+        else if (bl.startsWith('en')) lang = 'en';
+      }
+
+      window.location.replace(lang + '/index.html');
+    })();
+  </script>
+</head>
+<body></body>
+</html>
